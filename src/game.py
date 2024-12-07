@@ -19,7 +19,10 @@ for _ in range(opponents_length):
     opponent = Entity(model="sphere", color=color.yellow, scale=1, position=(x, y, z), collider="sphere")
     all_opponents.append(opponent)
 
-timer_text = Text(text="Time: 30", position=(-0.10, 0.45), scale=2)
+timer_text = Text(text="Time: 30", position=(-0.13, 0.45), scale=2)
 time_left = 30
+
+score = 0
+score_text = Text(f"Score: {score}", position=(-0.10, 0.40), scale=1.5, color=color.red)
 
 app.run()
