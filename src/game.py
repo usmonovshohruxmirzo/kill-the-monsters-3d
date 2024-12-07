@@ -12,6 +12,11 @@ player = FirstPersonController()
 player.speed = 5
 player.jump_height = 2
 
+def move_opponent(opponent):
+    x, y, z = random.randint(-20, 20), 2, random.randint(-20, 20)
+    opponent.animate("position", (x, y, z), duration=5, curve=curve.linear)
+    invoke(move_opponent, opponent, delay=2)
+
 all_opponents = []
 opponents_length = 10
 for _ in range(opponents_length):
@@ -24,6 +29,9 @@ for _ in range(opponents_length):
         texture="assets/image.png",  
         collider="box"  
     )
+
+    move_opponent(opponent)
+    
     all_opponents.append(opponent)
 
 timer_text = Text(text="Time: 30", position=(-0.13, 0.45), scale=2)
