@@ -34,6 +34,12 @@ for _ in range(opponents_length):
     
     all_opponents.append(opponent)
 
+game_name = Text(
+    text="Kill The Monster", 
+    position=(-0.16, -0.40),
+    scale=2,
+    font="assets/fonts/Crused Marrie.ttf")
+
 timer_text = Text(text="Time: 30", position=(-0.13, 0.45), scale=2)
 time_left = 30
 
