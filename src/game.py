@@ -4,6 +4,8 @@ import random
 
 app = Ursina()
 
+sky = Sky()
+
 ground = Entity(model="plane", scale=50, color=color.green, texture="/assets/ground.png", collider="box")
 
 player = FirstPersonController()
