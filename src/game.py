@@ -15,8 +15,15 @@ player.jump_height = 2
 all_opponents = []
 opponents_length = 10
 for _ in range(opponents_length):
-    x, y, z = random.randint(-20, 20), 1, random.randint(-20, 20)
-    opponent = Entity(model="sphere", color=color.yellow, scale=1, position=(x, y, z), collider="sphere")
+    x, y, z = random.randint(-20, 20), 2, random.randint(-20, 20)
+    opponent = Entity(
+        model="cube",
+        color=color.white,  
+        scale=(3, 4, 3),  
+        position=(x, y, z),  
+        texture="assets/image.png",  
+        collider="box"  
+    )
     all_opponents.append(opponent)
 
 timer_text = Text(text="Time: 30", position=(-0.13, 0.45), scale=2)
