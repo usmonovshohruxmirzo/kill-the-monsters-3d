@@ -66,7 +66,7 @@ def update():
         timer_text.text = f"Time: {int(time_left)}"
     else:
         timer_text.text = "Game Over"
-        app.quit()
+        quit()
 
     to_remove = [] 
     for oppenent in all_opponents:
