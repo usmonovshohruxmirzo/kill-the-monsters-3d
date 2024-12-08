@@ -91,4 +91,9 @@ def update():
         if bullet.visible and (bullet.position.x > 50 or bullet.position.x < -50 or bullet.position.z > 50 or bullet.position.z < -50):
             bullet.visible = False
 
+    if held_keys["w"] and held_keys["shift"]:
+        player.speed = 20  # Increase speed when Sprinting
+    else:
+        player.speed = 5
+
 app.run()
