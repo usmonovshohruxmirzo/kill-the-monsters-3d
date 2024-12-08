@@ -6,6 +6,9 @@ app = Ursina()
 
 sky = Sky()
 
+light = DirectionalLight()
+light.rotation = (45, 0, 0)
+
 ground = Entity(model="plane", scale=50, color=color.gray, texture="/assets/ground.png", collider="box")
 
 player = FirstPersonController()
@@ -13,21 +16,20 @@ player.speed = 5
 player.jump_height = 2
 
 def move_opponent(opponent):
-    x, y, z = random.randint(-20, 20), 2, random.randint(-20, 20)
+    x, y, z = random.randint(-20, 20), 0, random.randint(-20, 20)
     opponent.animate("position", (x, y, z), duration=5, curve=curve.linear)
     invoke(move_opponent, opponent, delay=2)
 
 all_opponents = []
 opponents_length = 10
 for _ in range(opponents_length):
-    x, y, z = random.randint(-20, 20), 2, random.randint(-20, 20)
+    x, y, z = random.randint(-20, 20), 0, random.randint(-20, 20)
     opponent = Entity(
-        model="cube",
-        color=color.white,  
-        scale=(3, 4, 3),  
+        model="/assets/models/monster.glb",
+        scale=80,  
         position=(x, y, z),  
-        texture="assets/image.png",  
-        collider="box"  
+        collider="box",
+        color=color.gray
     )
 
     move_opponent(opponent)
