@@ -67,6 +67,19 @@ def update():
     else:
         timer_text.text = "Game Over"
 
+    to_remove = [] 
+    for oppenent in all_opponents:
+        for bullet in bullets:
+            if bullet.visible and bullet.intersects(oppenent).hit:
+                oppenent.disable()
+                to_remove.append(oppenent)
+                score += 1
+                score_text.text = f"Score: {score}"
+
+    for oppenent in to_remove:
+        if oppenent in all_opponents:
+            all_opponents.remove(oppenent)
+            
     for bullet in bullets:
         bullet.position += bullet.forward * bullet.speed * time.dt  
         
