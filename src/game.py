@@ -86,4 +86,8 @@ def update():
     if mouse.left:
         shoot()
 
+    for bullet in bullets:
+        if bullet.visible and (bullet.position.x > 50 or bullet.position.x < -50 or bullet.position.z > 50 or bullet.position.z < -50):
+            bullet.visible = False
+
 app.run()
