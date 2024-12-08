@@ -59,6 +59,14 @@ def shoot():
     bullets.append(new_bullet)
 
 def update():
+    global time_left, score
+
+    if time_left > 0:
+        time_left -= time.dt
+        timer_text.text = f"Time: {int(time_left)}"
+    else:
+        timer_text.text = "Game Over"
+
     for bullet in bullets:
         bullet.position += bullet.forward * bullet.speed * time.dt  
         
