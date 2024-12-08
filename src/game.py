@@ -53,7 +53,7 @@ bullets = []
 
 def shoot():
     new_bullet = Entity(model="sphere", color=color.lime, scale=0.3, visible=True, collider="sphere", speed=100)
-    new_bullet.position = player.position + Vec3(0, 1, 0)
+    new_bullet.position = player.position + Vec3(0, 1.5, 0)
     new_bullet.rotation = player.rotation
     new_bullet.collider = "sphere"
     bullets.append(new_bullet)
