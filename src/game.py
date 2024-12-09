@@ -67,7 +67,7 @@ game_name = Text(
     font="assets/fonts/Crused Marrie.ttf")
 
 timer_text = Text(text="Time: 30", position=(-0.13, 0.45), scale=2)
-time_left = 30
+time_left = 100
 
 score = 0
 score_text = Text(f"Score: {score}", position=(-0.10, 0.40), scale=1.5, color=color.red)
