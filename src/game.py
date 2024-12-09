@@ -37,17 +37,18 @@ gun = Entity(
     scale=2.5  
 )
 
+opponent_speed = 30
 def move_opponent(opponent):
-    x, y, z = random.randint(-100, 100), 0, random.randint(-100, 100)
+    x, y, z = random.randint(-400, 400), 0, random.randint(-400, 400)
     direction = (Vec3(x, y, z) - opponent.position).normalized()
     opponent.rotation_y = -math.atan2(direction.x, direction.z) * (180 / math.pi)
-    opponent.animate("position", (x, y, z), duration=5, curve=curve.linear)
+    opponent.animate("position", (x, y, z), duration=opponent_speed, curve=curve.linear)
     invoke(move_opponent, opponent, delay=2)
 
 all_opponents = []
-opponents_length = 10
+opponents_length = 20
 for _ in range(opponents_length):
-    x, y, z = random.randint(-30, 30), 0, random.randint(-30, 30)
+    x, y, z = random.randint(-400, 400), 0, random.randint(-400, 400)
     opponent = Entity(
         model="/assets/models/monster.glb",
         scale=1,  
