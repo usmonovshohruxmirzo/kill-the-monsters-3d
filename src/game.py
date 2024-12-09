@@ -68,7 +68,7 @@ time_left = 30
 score = 0
 score_text = Text(f"Score: {score}", position=(-0.10, 0.40), scale=1.5, color=color.red)
 
-bullet_speed = 1000
+bullet_speed = 100
 bullet = Entity(model="sphere", color=color.lime, scale=0.3, visible=False, collider="sphere", speed=bullet_speed)
 bullets = []
 
@@ -108,9 +108,18 @@ def update():
     if mouse.left:
         shoot()
 
+    bullets_to_destroy = []
     for bullet in bullets:
-        if bullet.visible and (bullet.position.x > 50 or bullet.position.x < -50 or bullet.position.z > 50 or bullet.position.z < -50):
-            bullet.visible = False
+        if bullet.visible and (
+                abs(bullet.position.x) > ground_size - 400 or
+                abs(bullet.position.z) > ground_size - 400
+            ):
+            bullets_to_destroy.append(bullet)
+
+    for bullet in bullets_to_destroy:
+        bullet.visible = False
+        destroy(bullet)
+        bullets.remove(bullet)
 
     if held_keys["w"] and held_keys["shift"]:
         player.speed = 20  # Increase speed when Sprinting
@@ -119,10 +128,10 @@ def update():
 
 tree_length = 10
 for _ in range(tree_length):
-    x, y, z = random.randint(-200, 200), 0, random.randint(-200, 200)
+    x, y, z = random.randint(-200, 200), 6, random.randint(-200, 200)
     tree = Entity(
-        model="/assets/models/oak_trees.glb",
-        scale=15,  
+        model="/assets/models/tree.glb",
+        scale=1.5,  
         position=(x, y, z),  
         collider="box",
     )
