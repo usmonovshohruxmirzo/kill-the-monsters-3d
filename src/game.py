@@ -11,10 +11,10 @@ light.rotation = (45, 0, 0)
 light.intensity = 2.5
 light.color = color.white
 
-
+ground_size = 500
 ground = Entity(
     model="plane", 
-    scale=500,
+    scale=ground_size,
     color=color.gray,
     texture="/assets/ground.png",
     texture_scale=(100, 100),
@@ -123,6 +123,16 @@ for _ in range(tree_length):
     tree = Entity(
         model="/assets/models/oak_trees.glb",
         scale=15,  
+        position=(x, y, z),  
+        collider="box",
+    )
+
+tree_length = 10
+for _ in range(tree_length):
+    x, y, z = random.randint(-200, 200), 0, random.randint(-200, 200)
+    tree = Entity(
+        model="/assets/models/low_poly_house.glb",
+        scale=2.5,  
         position=(x, y, z),  
         collider="box",
     )
