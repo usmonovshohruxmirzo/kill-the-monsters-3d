@@ -79,15 +79,20 @@ def shoot():
     new_bullet.collider = "sphere"
     bullets.append(new_bullet)
 
-def update():
-    global time_left, score
-
+def timer():
+    global time_left
+    
     if time_left > 0:
         time_left -= time.dt
         timer_text.text = f"Time: {int(time_left)}"
     else:
         timer_text.text = "Game Over"
         quit()
+
+def update():
+    global time_left, score
+
+    timer()
 
     to_remove = [] 
     for oppenent in all_opponents:
@@ -122,7 +127,7 @@ def update():
         bullets.remove(bullet)
 
     if held_keys["w"] and held_keys["shift"]:
-        player.speed = 20  # Increase speed when Sprinting
+        player.speed = 20
     else:
         player.speed = 5
 
