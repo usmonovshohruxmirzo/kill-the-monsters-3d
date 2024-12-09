@@ -120,8 +120,8 @@ def update():
     bullets_to_destroy = []
     for bullet in bullets:
         if bullet.visible and (
-                abs(bullet.position.x) > ground_size - 400 or
-                abs(bullet.position.z) > ground_size - 400
+                abs(bullet.position.x) > ground_size - 100 or
+                abs(bullet.position.z) > ground_size - 100
             ):
             bullets_to_destroy.append(bullet)
 
