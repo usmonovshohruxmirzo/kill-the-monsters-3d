@@ -17,7 +17,7 @@ ground = Entity(
     scale=500,
     color=color.gray,
     texture="/assets/ground.png",
-    texture_scale=(30, 30),
+    texture_scale=(100, 100),
     collider="box",
     double_sided=True
 )
@@ -116,5 +116,15 @@ def update():
         player.speed = 20  # Increase speed when Sprinting
     else:
         player.speed = 5
+
+tree_length = 10
+for _ in range(tree_length):
+    x, y, z = random.randint(-200, 200), 0, random.randint(-200, 200)
+    tree = Entity(
+        model="/assets/models/oak_trees.glb",
+        scale=15,  
+        position=(x, y, z),  
+        collider="box",
+    )
 
 app.run()
