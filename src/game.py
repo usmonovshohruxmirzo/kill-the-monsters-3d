@@ -68,7 +68,7 @@ time_left = 30
 score = 0
 score_text = Text(f"Score: {score}", position=(-0.10, 0.40), scale=1.5, color=color.red)
 
-bullet_speed = 100
+bullet_speed = 500
 bullet = Entity(model="sphere", color=color.lime, scale=0.3, visible=False, collider="sphere", speed=bullet_speed)
 bullets = []
 
