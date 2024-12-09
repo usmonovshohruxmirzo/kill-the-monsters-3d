@@ -4,6 +4,8 @@ import random
 
 app = Ursina()
 
+window.fullscreen = True
+
 sky = Sky()
 
 light = DirectionalLight()
