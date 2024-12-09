@@ -46,10 +46,9 @@ for _ in range(opponents_length):
     x, y, z = random.randint(-30, 30), 0, random.randint(-30, 30)
     opponent = Entity(
         model="/assets/models/monster.glb",
-        scale=80,  
+        scale=1,  
         position=(x, y, z),  
         collider="box",
-        color=color.red
     )
 
     move_opponent(opponent)
