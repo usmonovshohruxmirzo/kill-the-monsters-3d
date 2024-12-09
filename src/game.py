@@ -7,7 +7,10 @@ app = Ursina()
 sky = Sky()
 
 light = DirectionalLight()
-light.rotation = (45, 0, 0)
+light.rotation = (45, 0, 0)  
+light.intensity = 2.5
+light.color = color.white
+
 
 ground = Entity(
     model="plane", 
@@ -46,7 +49,7 @@ for _ in range(opponents_length):
         scale=80,  
         position=(x, y, z),  
         collider="box",
-        color=color.gray
+        color=color.red
     )
 
     move_opponent(opponent)
