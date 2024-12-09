@@ -9,7 +9,7 @@ sky = Sky()
 light = DirectionalLight()
 light.rotation = (45, 0, 0)
 
-ground = Entity(model="plane", scale=50, color=color.gray, texture="/assets/ground.png", collider="box", double_sided=True)
+ground = Entity(model="plane", scale=500, color=color.gray, texture="/assets/ground.png", collider="box", double_sided=True)
 
 player = FirstPersonController()
 player.speed = 5
@@ -25,7 +25,7 @@ gun = Entity(
 )
 
 def move_opponent(opponent):
-    x, y, z = random.randint(-30, 30), 0, random.randint(-30, 30)
+    x, y, z = random.randint(-100, 100), 0, random.randint(-100, 100)
     opponent.animate("position", (x, y, z), duration=5, curve=curve.linear)
     invoke(move_opponent, opponent, delay=2)
 
