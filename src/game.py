@@ -46,7 +46,7 @@ def move_opponent(opponent):
     invoke(move_opponent, opponent, delay=2)
 
 all_opponents = []
-opponents_length = 20
+opponents_length = 10
 for _ in range(opponents_length):
     x, y, z = random.randint(-400, 400), 0, random.randint(-400, 400)
     opponent = Entity(
@@ -135,7 +135,7 @@ def update():
     else:
         player.speed = 5
 
-tree_length = 100
+tree_length = 50
 for _ in range(tree_length):
     x, y, z = random.randint(-200, 200), 6, random.randint(-200, 200)
     tree = Entity(
