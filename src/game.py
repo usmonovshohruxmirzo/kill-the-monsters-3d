@@ -37,6 +37,8 @@ gun = Entity(
 
 def move_opponent(opponent):
     x, y, z = random.randint(-100, 100), 0, random.randint(-100, 100)
+    direction = (Vec3(x, y, z) - opponent.position).normalized()
+    opponent.rotation_y = -math.atan2(direction.x, direction.z) * (180 / math.pi)
     opponent.animate("position", (x, y, z), duration=5, curve=curve.linear)
     invoke(move_opponent, opponent, delay=2)
 
