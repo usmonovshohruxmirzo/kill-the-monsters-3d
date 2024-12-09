@@ -140,17 +140,19 @@ for _ in range(tree_length):
     tree = Entity(
         model="/assets/models/tree.glb",
         scale=1.5,  
-        position=(x, y, z),  
+        position=(x, y, z),
+        rotation=(0, y, 0),
         collider="box",
     )
 
-house_length = 20
+house_length = 10
 for _ in range(house_length):
     x, y, z = random.randint(-200, 200), 0, random.randint(-200, 200)
-    tree = Entity(
+    home = Entity(
         model="/assets/models/low_poly_house.glb",
         scale=2.5,  
-        position=(x, y, z),  
+        position=(x, y, z), 
+        rotation=(0, y, 0),
         collider="box",
     )
 
