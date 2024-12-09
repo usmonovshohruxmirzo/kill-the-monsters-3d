@@ -9,7 +9,15 @@ sky = Sky()
 light = DirectionalLight()
 light.rotation = (45, 0, 0)
 
-ground = Entity(model="plane", scale=500, color=color.gray, texture="/assets/ground.png", collider="box", double_sided=True)
+ground = Entity(
+    model="plane", 
+    scale=500,
+    color=color.gray,
+    texture="/assets/ground.png",
+    texture_scale=(30, 30),
+    collider="box",
+    double_sided=True
+)
 
 player = FirstPersonController()
 player.speed = 5
