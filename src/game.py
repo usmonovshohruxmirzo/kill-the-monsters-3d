@@ -11,6 +11,8 @@ light.rotation = (45, 0, 0)
 light.intensity = 2.5
 light.color = color.white
 
+ambient_light = AmbientLight(color=color.white, intensity=0.1)
+
 ground_size = 500
 ground = Entity(
     model="plane", 
@@ -132,7 +134,7 @@ def update():
     else:
         player.speed = 5
 
-tree_length = 10
+tree_length = 100
 for _ in range(tree_length):
     x, y, z = random.randint(-200, 200), 6, random.randint(-200, 200)
     tree = Entity(
@@ -142,8 +144,8 @@ for _ in range(tree_length):
         collider="box",
     )
 
-tree_length = 10
-for _ in range(tree_length):
+house_length = 20
+for _ in range(house_length):
     x, y, z = random.randint(-200, 200), 0, random.randint(-200, 200)
     tree = Entity(
         model="/assets/models/low_poly_house.glb",
