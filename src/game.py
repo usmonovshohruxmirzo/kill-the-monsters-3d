@@ -57,11 +57,12 @@ time_left = 30
 score = 0
 score_text = Text(f"Score: {score}", position=(-0.10, 0.40), scale=1.5, color=color.red)
 
-bullet = Entity(model="sphere", color=color.lime, scale=0.3, visible=False, collider="sphere", speed=100)
+bullet_speed = 1000
+bullet = Entity(model="sphere", color=color.lime, scale=0.3, visible=False, collider="sphere", speed=bullet_speed)
 bullets = []
 
 def shoot():
-    new_bullet = Entity(model="sphere", color=color.lime, scale=0.3, visible=True, collider="sphere", speed=100)
+    new_bullet = Entity(model="sphere", color=color.lime, scale=0.3, visible=True, collider="sphere", speed=bullet_speed)
     new_bullet.position = player.position + Vec3(0, 1.5, 0)
     new_bullet.rotation = player.rotation
     new_bullet.collider = "sphere"
