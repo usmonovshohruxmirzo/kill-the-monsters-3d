@@ -2,7 +2,7 @@
 
 ## **1. Game Overview**
 
-**Title**: Kill The Monster I
+**Title**: Kill The Monsters I
 
 **Platform**: PC (Windows, macOS, Linux)
 
