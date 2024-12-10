@@ -1,5 +1,8 @@
 # **Game Documentation for 3D Shooting Game**
 
+![image](https://github.com/user-attachments/assets/0b28881f-f78b-4c17-b541-0cdedfe0a047)
+
+
 ## **1. Game Overview**
 
 **Title**: Kill The Monsters I
