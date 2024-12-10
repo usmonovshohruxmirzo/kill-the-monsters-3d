@@ -36,7 +36,7 @@ gun = Entity(
     position=(0.5, -0.6, 0.8),
     color=color.gray,  
     rotation=(5, 180, 0), 
-    scale=2.5  
+    scale=(3.5, 2.5, 2.5)  
 )
 
 opponent_speed = 30
