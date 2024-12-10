@@ -15,15 +15,15 @@ light.color = color.white
 
 ambient_light = AmbientLight(color=color.white, intensity=0.1)
 
+heightmap_texture = load_texture("/assets/textures/heightmap.png")
 ground_size = 500
 ground = Entity(
-    model="plane", 
-    scale=ground_size,
+    model=Terrain(heightmap_texture, skip=15), 
+    scale=(ground_size, 20, ground_size), 
     color=color.gray,
-    texture="/assets/ground.png",
-    texture_scale=(100, 100),
-    collider="box",
-    double_sided=True
+    texture="/assets/rocky_terrain_02_diff_2k.jpg",
+    texture_scale=(200, 200),
+    collider="mesh",
 )
 
 player = FirstPersonController()
