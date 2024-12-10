@@ -1,4 +1,4 @@
-# **Game Documentation for 3D Shooting Game**
+# **Game Documentation of Kill The Monsters I Video Game**
 
 ## **1. Game Overview**
 
