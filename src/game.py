@@ -127,6 +127,8 @@ def update():
         for bullet in bullets:
             if bullet.visible and bullet.intersects(oppenent).hit:
                 oppenent.disable()
+                bullet.scale = 10  
+                bullet.color = color.red  
                 to_remove.append(oppenent)
                 score += 1
                 score_text.text = f"Score: {score}"
