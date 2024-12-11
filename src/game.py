@@ -4,7 +4,7 @@ import random
 
 app = Ursina()
 
-window.fullscreen = True
+# window.fullscreen = True
 
 sky = Sky()
 
@@ -74,16 +74,38 @@ time_left = 100
 score = 0
 score_text = Text(f"Score: {score}", position=(-0.10, 0.40), scale=1.5, color=color.red)
 
-bullet_speed = 1000
+bullet_speed = 100
 bullet = Entity(model="sphere", color=color.lime, scale=0.3, visible=False, collider="sphere", speed=bullet_speed)
 bullets = []
 
 def shoot():
-    new_bullet = Entity(model="sphere", color=color.lime, scale=0.3, visible=True, collider="sphere", speed=bullet_speed)
-    new_bullet.position = player.position + Vec3(0, 1.5, 0)
+    new_bullet = Entity(
+        model="sphere",
+        color=color.lime,
+        scale=0.3,
+        visible=True,
+        collider="sphere",
+        speed=bullet_speed
+    )
+    
+    new_bullet.position = player.position + Vec3(0, 2, 0)
     new_bullet.rotation = player.rotation
-    new_bullet.collider = "sphere"
+    
+    forward_direction = camera.forward  
+
+    forward_direction = forward_direction.normalized()
+
+    def move_bullet():
+        new_bullet.position += forward_direction * new_bullet.speed * time.dt
+        
+        if distance(new_bullet.position, player.position) > 400:
+            bullets.remove(new_bullet)
+            destroy(new_bullet)
+    
+    new_bullet.update = move_bullet
+    
     bullets.append(new_bullet)
+
 
 def timer():
     global time_left
