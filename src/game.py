@@ -4,9 +4,14 @@ import random
 
 app = Ursina()
 
+# EditorCamera()
+
 # window.fullscreen = True
 
 sky = Sky()
+
+scene.fog_color = color.black
+scene.fog_density = 0.1  
 
 light = DirectionalLight()
 light.rotation = (45, 0, 0)  
@@ -18,7 +23,8 @@ ambient_light = AmbientLight(color=color.white, intensity=0.1)
 heightmap_texture = load_texture("/assets/textures/heightmap.png")
 ground_size = 500
 ground = Entity(
-    model=Terrain(heightmap_texture, skip=15), 
+    # model=Terrain(heightmap_texture, skip=15),
+    model="plane",
     scale=(ground_size, 20, ground_size), 
     color=color.gray,
     texture="/assets/rocky_terrain_02_diff_2k.jpg",
@@ -30,13 +36,29 @@ player = FirstPersonController()
 player.speed = 5
 player.jump_height = 2
 
-gun = Entity(
-    model="/assets/models/gun.glb",
+city = Entity(
+    model="/assets/models/full_gameready_city_buildings.glb",
+    scale=2,  
+    position=(0, 0.2, 0),  
+    collider="box",
+)
+
+# gun = Entity(
+#     model="/assets/models/gun.glb",
+#     parent=camera,
+#     position=(0.5, -0.6, 0.8),
+#     color=color.gray,  
+#     rotation=(5, 180, 0), 
+#     scale=(3.5, 2.5, 2.5)  
+# )
+
+pistol_with_fp = Entity(
+    model="/assets/models/first_person_pistol_view.glb",
+    position=(0, -1.7, 0), 
     parent=camera,
-    position=(0.5, -0.6, 0.8),
     color=color.gray,  
-    rotation=(5, 180, 0), 
-    scale=(3.5, 2.5, 2.5)  
+    rotation=(0, 180, 0), 
+    scale=1.2 
 )
 
 opponent_speed = 30
