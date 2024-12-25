@@ -37,7 +37,7 @@ player.speed = 5
 player.jump_height = 2
 
 city = Entity(
-    model="/assets/models/full_gameready_city_buildings.glb",
+    model="/assets/models/city.glb",
     scale=2,  
     position=(0, 0.2, 0),  
     collider="box",
