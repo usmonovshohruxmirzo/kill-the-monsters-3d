@@ -69,8 +69,12 @@ background_sound()
 walking_sound = Audio("/assets/sound/walking.mp3", loop=True, autoplay=False)
 walking_sound.volume = 10
 
+run_sound = Audio("/assets/sound/run.mp3", loop=True, autoplay=False)
+run_sound.volume = 10
+
 shoot_sound = Audio("/assets/sound/shoot.mp3", loop=False, autoplay=False)
 shoot_sound.volume = 10
+
 
 opponent_speed = 30
 def move_opponent(opponent):
@@ -193,10 +197,21 @@ def update():
         bullets.remove(bullet)
 
 
-    if held_keys["w"] and held_keys["shift"]:
+    if held_keys["w"] and held_keys["shift"]:  
         player.speed = 20
-    else:
+        if not run_sound.playing:
+            run_sound.play()
+
+        if walking_sound.playing:
+            walking_sound.stop()
+    else: 
         player.speed = 5
+        if not walking_sound.playing:
+            walking_sound.play()
+            
+        if run_sound.playing:
+            run_sound.stop()
+
 
     if held_keys["w"]:
         if not walking_sound.playing:
