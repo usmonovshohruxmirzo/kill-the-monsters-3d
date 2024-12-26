@@ -39,7 +39,7 @@ player.jump_height = 2
 city = Entity(
     model="/assets/models/city.glb",
     scale=2,  
-    position=(0, 0.2, 0),  
+    position=(0, 0.1, 0),  
     collider="box",
 )
 
@@ -60,6 +60,12 @@ pistol_with_fp = Entity(
     rotation=(0, 180, 0), 
     scale=1.2 
 )
+
+def background_sound():
+    background_sound = Audio("/assets/sound/background.mp3", loop=True, autoplay=True)
+    background_sound.play()
+
+background_sound()
 
 opponent_speed = 30
 def move_opponent(opponent):
