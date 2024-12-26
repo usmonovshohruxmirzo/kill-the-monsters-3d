@@ -62,10 +62,15 @@ pistol_with_fp = Entity(
 )
 
 def background_sound():
-    background_sound = Audio("/assets/sound/background.mp3", loop=True, autoplay=True)
-    background_sound.play()
-
+    sound = Audio("/assets/sound/background.mp3", loop=True, autoplay=True)
+    sound.play()
 background_sound()
+
+walking_sound = Audio("/assets/sound/walking.mp3", loop=True, autoplay=False)
+walking_sound.volume = 10
+
+shoot_sound = Audio("/assets/sound/shoot.mp3", loop=True, autoplay=False)
+shoot_sound.volume = 10
 
 opponent_speed = 30
 def move_opponent(opponent):
@@ -183,6 +188,13 @@ def update():
         bullet.visible = False
         destroy(bullet)
         bullets.remove(bullet)
+
+    if held_keys['w']:
+        if not walking_sound.playing:
+            walking_sound.play()
+    else:
+        if walking_sound.playing:
+            walking_sound.stop()
 
     if held_keys["w"] and held_keys["shift"]:
         player.speed = 20
