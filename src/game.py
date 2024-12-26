@@ -27,7 +27,7 @@ ground = Entity(
     model="plane",
     scale=(ground_size, 20, ground_size), 
     color=color.gray,
-    texture="/assets/rocky_terrain_02_diff_2k.jpg",
+    texture="/assets/textures/rocky_terrain_02_diff_2k.jpg",
     texture_scale=(200, 200),
     collider="mesh",
 )
@@ -208,7 +208,7 @@ def update():
         player.speed = 5
         if not walking_sound.playing:
             walking_sound.play()
-            
+
         if run_sound.playing:
             run_sound.stop()
 
