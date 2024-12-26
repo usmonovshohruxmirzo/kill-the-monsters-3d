@@ -69,7 +69,7 @@ background_sound()
 walking_sound = Audio("/assets/sound/walking.mp3", loop=True, autoplay=False)
 walking_sound.volume = 10
 
-shoot_sound = Audio("/assets/sound/shoot.mp3", loop=True, autoplay=False)
+shoot_sound = Audio("/assets/sound/shoot.mp3", loop=False, autoplay=False)
 shoot_sound.volume = 10
 
 opponent_speed = 30
@@ -139,6 +139,9 @@ def shoot():
     
     bullets.append(new_bullet)
 
+def input(key):
+    if key == "left mouse down":
+        shoot_sound.play()
 
 def timer():
     global time_left
@@ -189,17 +192,18 @@ def update():
         destroy(bullet)
         bullets.remove(bullet)
 
-    if held_keys['w']:
-        if not walking_sound.playing:
-            walking_sound.play()
-    else:
-        if walking_sound.playing:
-            walking_sound.stop()
 
     if held_keys["w"] and held_keys["shift"]:
         player.speed = 20
     else:
         player.speed = 5
+
+    if held_keys["w"]:
+        if not walking_sound.playing:
+            walking_sound.play()
+    else:
+        if walking_sound.playing:
+            walking_sound.stop()
 
 tree_length = 50
 for _ in range(tree_length):
