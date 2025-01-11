@@ -1,7 +1,9 @@
 # **Game Documentation of Kill The Monsters I Video Game**
 
-![image](https://github.com/user-attachments/assets/0b28881f-f78b-4c17-b541-0cdedfe0a047)
-
+<video width="600" controls>
+  <source src="./trailer_v1.0.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 ## **1. Game Overview**
 
